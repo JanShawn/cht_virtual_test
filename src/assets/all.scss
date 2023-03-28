@@ -1,0 +1,313 @@
+// 056dfa
+.swal2-styled:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.swal2-container *:focus:not(.swal2-focus-shown) {
+  outline: none !important;
+}
+// Home
+.home-bg {
+  background: rgba(0, 0, 0, 0.4);
+}
+.level {
+  border: 1.6px solid #eed3a4;
+}
+// 上區塊
+.avatar-area {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  padding-block-start: 20px;
+  transition: padding-block-start 2s ease 0s;
+  height: 100%;
+  width: 100%;
+  //   min-height: 400px;
+  //   background-color: white;
+  //   max-height: 400px;
+  //   height: 45%;
+  z-index: 3;
+  box-sizing: border-box;
+  //   box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 15px 40px;
+  .avatar3D {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+// 中區塊
+.dialogue-area {
+  z-index: 20;
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+  //   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  //   padding-inline: 20px;
+  gap: 10px;
+  bottom: 0px;
+  transition: bottom 0.25s ease-in-out 0s;
+
+  .avatar-speak {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #eed3a4;
+    border-radius: 16px 16px 16px 4px;
+    color: #fff;
+    margin: 0px auto 0px 0px;
+    max-width: 85%;
+    padding: 15px;
+    box-sizing: border-box;
+    word-break: break-word;
+    white-space: pre-wrap;
+    line-height: 120%;
+    animation: fadeIn 1s forwards;
+    &:first-child {
+      margin-top: auto;
+    }
+  }
+  .avatar-speak-loading {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #eed3a4;
+    border-radius: 16px 16px 16px 4px;
+    padding: 10px;
+    width: 60px;
+  }
+
+  .user-speak {
+    background: rgba(146, 119, 79, 0.9);
+    border: 1px solid #eed3a4;
+    border-radius: 16px 16px 4px 16px;
+    color: #fff;
+    margin: 0px 0px 0px auto;
+    max-width: 85%;
+    padding: 15px;
+    box-sizing: border-box;
+    word-break: break-word;
+    white-space: pre-wrap;
+    line-height: 120%;
+    animation: fadeIn 1s forwards;
+    &.loading {
+      background: rgba(70, 70, 70, 0.5);
+    }
+  }
+}
+//下區塊
+.speak {
+  background: radial-gradient(50% 50% at 50% 50%, #f3cb86 20.31%, #92774f 100%);
+  //   background: linear-gradient(39.13deg, #056dfa 15.98%, #009acb 92.72%);
+  box-shadow: 2px 2px 10px #313131;
+  //   transition: $ease;
+  border: 1px solid #eed3a4;
+  &:hover {
+    svg {
+      //   fill: rgba(black, 0.2);
+    }
+  }
+}
+.send {
+  // background: linear-gradient(39.13deg, #056dfa 15.98%, #009acb 92.72%);
+  background: radial-gradient(50% 50% at 50% 50%, #f3cb86 20.31%, #92774f 100%);
+  box-shadow: 2px 2px 10px #313131;
+  border: 1px solid #eed3a4;
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // transform: translate(-55%, -45%);
+    transform: translate(-50%, -40%);
+  }
+  span {
+    z-index: -10;
+    position: absolute;
+    box-sizing: border-box;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    animation: wave 1.5s cubic-bezier(0.03, 0.08, 0.17, 1) infinite;
+    animation-delay: calc(0.5s * var(--i));
+  }
+}
+
+.speaking {
+  background: #fff;
+  //   transition: $ease;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  svg rect,
+  svg path {
+    stroke: red;
+  }
+  &:before {
+    animation: ring 2s linear infinite;
+    position: absolute;
+    content: "";
+    top: -2.5%;
+    left: -2.5%;
+    width: 105%;
+    height: 105%;
+    border-radius: 50%;
+  }
+}
+.speak-loading {
+  background: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+.speak-disable {
+  background: #c0c0c0;
+  cursor: not-allowed;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12);
+}
+.speak-before {
+  position: relative;
+  padding-left: 5px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    width: 2px;
+    height: 24px;
+    background-color: #eed3a4;
+    animation: blink 1.2s infinite;
+  }
+}
+.speak-after {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: -5px;
+    width: 2px;
+    height: 24px;
+    background-color: #eed3a4;
+    animation: blink 1.2s infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 2px 2px 1px #e65c00;
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 2px 2px 1px #e65c00;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 2px 2px 1px #e65c00;
+  }
+}
+
+@keyframes wave {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+// sweetAlert
+.swal2-container {
+  padding: 0 44px;
+}
+.alert-popup {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 24px;
+  box-shadow: 0px 2px 6px rgba(47, 47, 50, 0.15);
+  border-radius: 8px;
+  border: 1.6px solid #eed3a4;
+}
+.alert-title {
+  color: #fff;
+  margin-bottom: 32px;
+  font-size: 28px;
+  padding: 0;
+  font-weight: 400;
+}
+.alert-container {
+  margin: 0;
+  color: #fff;
+  text-align: left;
+  font-size: 16px;
+}
+.alert-action-block {
+  margin-top: 0;
+}
+.alert-confirm-btn {
+  margin-top: 48px;
+  // background: #056dfa;
+  background: linear-gradient(180deg, #f5dbab 0%, #a5885d 100%);
+  border-radius: 24px;
+  padding: 8px 60px;
+  color: #393738;
+}
+// setting-area
+
+.setting-area {
+  position: relative;
+  .setting-bg {
+    position: fixed;
+    top: -5px;
+    right: -5px;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+    z-index: 100;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    transition: all 1s;
+    transform: scale(0);
+    &.open-menu {
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(250);
+    }
+  }
+
+  .menu-button {
+    position: absolute;
+    z-index: 1000;
+    height: 50px;
+    width: 50px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50px;
+    right: 50px;
+  }
+}
